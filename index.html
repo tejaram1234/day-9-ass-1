@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button{
+            margin-left: 200px;
+            margin-top: 40px;
+            font-size: 30px;
+            width: 150px;
+            height: 60px;
+            border-radius: 20px;
+            background-color: cadetblue;
+        }
+        p{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    // Answer for 1a 
+    <p>Click the below button to get an alter message:</p>
+   <button class="button">Click</button>
+<br>
+<br>
+ <h1> 1b Event Bubbling:</h1>
+    <p class="def"> the event bubbling is used where the event handlers are invoked when one element is nested on to the other element and are part of the same event. 
+        This technique or method is known as Event Bubbling.Top to Bottom, calling is performed in event bubbling.An event moves from target to outermost element.</p>
+        <h1>Example of event bubbling:</h1>
+        <div id="parent">  
+            <button id="child">child button</button>  
+          </div>  
+            <h2>When you click above button you will get the output as :<br><h3>child is invoked</h3><h3>parent is invoked</h3></h2>
+            <img src="eb.png" alt="" srcset="">
+            <br>
+            <br>
+
+            <h1>Event Capturing:</h1>
+            <p>Event Capturing is opposite to event bubbling, where in event capturing, an event moves from the outermost element to the target. Otherwise, in case of event bubbling, the event movement begins from the target to the outermost element in the file</p>
+            <h1>Example:</h1>
+            <div id="per">  
+                <button id="chi">Child</button>  
+              </div>  
+              <h2>When you click above button you will get the output as :<br><h3>parent is invoked</h3><h3>child is invoked</h3></h2>
+              <img src="Screenshot 2023-03-31 152737.png" alt="" srcset="">
+</body>
+</html>
+<script>
+myButton = document.querySelector('button');
+myButton.addEventListener('click', myFunction); 
+function myFunction() {
+    alert("This is an alter message")
+}
+
+//event bubbling
+ var parent = document.querySelector('#parent');  
+              parent.addEventListener('click', function(){  
+                console.log("Parent is invoked");  
+              });  
+          
+           var child = document.querySelector('#child');  
+              child.addEventListener('click', function(){  
+                console.log("Child is invoked");  
+              });  
+
+//event capturing
+              var parent = document.querySelector('#per');  
+        var child = document.querySelector('#chi');  
+      
+        parent.addEventListener('click', function(){  
+          console.log("Parent is invoked");  
+        },true);  
+        child.addEventListener('click', function(){  
+          console.log("Child is invoked");  
+        });  
+</script> 
